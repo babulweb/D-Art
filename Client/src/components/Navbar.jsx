@@ -1,23 +1,32 @@
-// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
-      <div className="text-2xl font-bold text-gray-800">
-        <Link to="/">InteriorVision</Link>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/" onClick={closeMenu}>InteriorVision</Link>
       </div>
 
-      <ul className="flex space-x-6 text-gray-700 font-medium">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/portfolio">Portfolio</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+      <div className={`navbar-toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+        <li><Link to="/portfolio" onClick={closeMenu}>Portfolio</Link></li>
+        <li><Link to="/about" onClick={closeMenu}>About</Link></li>
+        <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
         <li>
-          <Link
-            to="/login"
-            className="bg-black text-white px-4 py-1.5 rounded-lg hover:bg-gray-800"
-          >
+          <Link to="/login" className="login-button" onClick={closeMenu}>
             Login
           </Link>
         </li>
