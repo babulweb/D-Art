@@ -51,7 +51,7 @@ form > div > div{width:48%;}
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: #fff;
-  border: 1.5px solid #ddd;
+  border: 1.8px solid #ddd;
   border-radius: 8px;
   padding: 12px 40px 12px 15px; /* right padding leaves space for arrow */
   font-size: 15px;
@@ -130,6 +130,14 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
+.eye-icon{position: absolute;
+      right: 10px;
+      top: 40%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;}
+
 /* Error messages */
 .error {
   color: #d93025;
@@ -138,6 +146,14 @@ button[type="submit"]:hover {
 }
 
 /* Responsive */
+@media (max-width: 750px){
+  .inpMainDiv{
+    flex-direction: column;
+  }
+  .inpMainDiv > div{width:100%;}
+}
+
+
 @media (max-width: 480px) {
   .register-box {
     padding: 25px 20px;

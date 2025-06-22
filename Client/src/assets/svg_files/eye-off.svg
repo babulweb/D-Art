@@ -1,0 +1,6 @@
+<!-- src/assets/eye-off.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17.94 17.94a10.37 10.37 0 0 1-5.94 1.94C6.5 19.88 2 15 2 12s4.5-7.88 10-7.88c1.63 0 3.17.39 4.5 1.09"/>
+  <line x1="1" y1="1" x2="23" y2="23"/>
+</svg>

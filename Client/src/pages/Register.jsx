@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Register.css";
 import StatesDropdown from "../components/StatesDropdown";
 import CitiesDropdown from "../components/CitiesDropdown";
+import eye from "../assets/svg_files/eye.svg";
+import eyeOff from "../assets/svg_files/eye-off.svg";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,7 @@ const Register = () => {
     city: "",
     password: "",
     confirmPassword: "",
-    cpassType: "",
+    showConfirmPassword: false,
   });
 // formData.cpassType
   const [errors, setErrors] = useState({});
@@ -78,6 +80,7 @@ const Register = () => {
         <h2>Register</h2>
 
         <form onSubmit={handleSubmit}>
+
           <div className="inpMainDiv">
             <div>
               <div className="labDiv">
@@ -180,19 +183,34 @@ const Register = () => {
 
             <div>
               <div className="labDiv">
-                <label htmlFor="confirmPass">Confirm Password</label>
+                <label htmlFor="confirmPass">Confirm&nbsp;Password</label>
                 {errors.confirmPassword && (
                   <p className="error">{errors.confirmPassword}</p>
                 )}
               </div>
-              <input
-                id="confirmPass"
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-              />
+              <div style={{ position: "relative" }}>
+  <input
+    id="confirmPass"
+    type={formData.showConfirmPassword ? "text" : "password"}
+    name="confirmPassword"
+    placeholder="Confirm Password"
+    value={formData.confirmPassword}
+    onChange={handleChange}
+    style={{ paddingRight: "36px" }}
+  />
+  <img
+    src={formData.showConfirmPassword ? eye : eyeOff}
+    alt="Toggle visibility"
+    className="eye-icon"
+    onClick={() =>
+      setFormData((prev) => ({
+        ...prev,
+        showConfirmPassword: !prev.showConfirmPassword,
+      }))
+    }
+
+  />
+</div>
             </div>
 
           </div>
